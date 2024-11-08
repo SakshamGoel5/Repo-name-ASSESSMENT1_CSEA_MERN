@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Maker</h1>
+        <form id="resumeForm">
+            <label for="name" >Name</label>
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <label for="email" >Email</label>
+            <input type="email" id="email" placeholder="Email Address" required>
+
+            <label for="phone" >Phone</label>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+
+            <label for="linkedin" >LinkedIn Id</label>
+            <input type="text" id="linkedin" placeholder="LinkedIn URL" required>
+
+            <label for="github" >Github Id</label>
+            <input type="text" id="github" placeholder="GitHub URL" required>
+
+            <label for="experience" >Experience</label>
+            <textarea id="experience" placeholder="Professional Experience" required></textarea>
+
+            <label for="education" >Education</label>
+            <textarea id="education" placeholder="Academic Background" required></textarea>
+            
+            <label for="photo" >Upload Photo</label>
+            <input type="file" id="photo" accept="image/*" required>
+
+            <button type="button" onclick="createResume()">Create Resume</button>
+        </form>
+        
+        <div id="resumePreview" class="resume-preview" style="display: none;">
+            <div id="resumeContent">
+                <h2 id="displayName"></h2>
+                <img id="displayPhoto" alt="Your Photo">
+                <p>Email: <span id="displayEmail"></span></p>
+                <p>Phone: <span id="displayPhone"></span></p>
+                <p>LinkedIn: <a href="#" id="displayLinkedIn" target="_blank"></a></p>
+                <p>GitHub: <a href="#" id="displayGitHub" target="_blank"></a></p>
+                <h3>Professional Experience</h3>
+                <p id="displayExperience"></p>
+                <h3>Education</h3>
+                <p id="displayEducation"></p>
+            </div>
+            <button onclick="saveAsPDF()">Download PDF</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
